@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html>
 	<script>
-function browserRedirect() {
-    var sUserAgent = navigator.userAgent.toLowerCase();
-    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-    var bIsAndroid = sUserAgent.match(/android/i) == "android";
-    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-    if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
-        window.location.href="http://baidu.com";
-    } else {
-        window.location.href="http://m.baidu.com";
-    }
-}
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  	var options={
-                 enableHighAccuracy:true, //boolean 是否要求高精度的地理信息，默认为false
-                 maximumAge:1000 //应用程序的缓存时间
-             }
+		function browserRedirect() {
+			var sUserAgent = navigator.userAgent.toLowerCase();
+			var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+			var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+			var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+			var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+			var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+			var bIsAndroid = sUserAgent.match(/android/i) == "android";
+			var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+			var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+			if(!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)) {
+				window.location.href = "http://baidu.com";
+			} else {
+				window.location.href = "http://m.baidu.com";
+			}
+		}
+		
 
-             if(navigator.geolocation){
-                 //浏览器支持geolocation
-                  navigator.geolocation.watchPosition(showPosition);
-                 
-             }else{
-                 //浏览器不支持geolocation
-                 console.log("浏览器不支持!");
-             }
-  }
-function showPosition(position)
-  {
-  						//返回用户位置
-              //经度
-              var longitude =position.coords.longitude;
-              //纬度
-              var latitude = position.coords.latitude;
-   						x.innerHTML="Latitude: " + latitude + "<br />Longitude: " + longitude;
-  }
-  window.onload=getLocation;
-</script>
-<body>
-<h1><a onclick="javascript:browserRedirect()">回去生气</a></h1>
-<p id="demo"></p>
-<audio src="sing.mp3" controls="controls">
-	掌声响起来
-</audio>
+		function getLocation() {
+			var options = {
+				enableHighAccuracy: true, //boolean 是否要求高精度的地理信息，默认为false
+				maximumAge: 1000 //应用程序的缓存时间
+			}
 
-</body>
+			if(navigator.geolocation) {
+				//浏览器支持geolocation
+				navigator.geolocation.watchPosition(showPosition);
+				
+			} else {
+				//浏览器不支持geolocation
+				console.log("浏览器不支持!");
+			}
+		}
+
+		function showPosition(position) {
+			var x = document.getElementById("demo");
+			//返回用户位置
+			//经度
+			var longitude = position.coords.longitude;
+			//纬度
+			var latitude = position.coords.latitude;
+			x.innerHTML = "Latitude: " + latitude + "<br />Longitude: " + longitude;
+		}
+		window.onload = getLocation;
+	</script>
+
+	<body>
+		<h1><a onclick="javascript:browserRedirect()">回去生气</a></h1>
+		<p id="demo"></p>
+		<audio src="sing.mp3" controls="controls">
+			掌声响起来
+		</audio>
+
+	</body>
+
 </html>

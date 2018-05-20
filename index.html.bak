@@ -33,11 +33,6 @@ function getLocation()
                  //浏览器不支持geolocation
                  console.log("浏览器不支持!");
              }
-  if (navigator.geolocation)
-    {
-   
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
   }
 function showPosition(position)
   {

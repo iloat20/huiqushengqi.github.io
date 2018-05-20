@@ -33,7 +33,7 @@ function showPosition(position)
   }
 </script>
 <body>
-<h1 id="demo"><a onclick="javascript:browserRedirect()">回去生气</a></h1>
+<h1 id="demo"><a onclick="javascript:getLocation()">回去生气</a></h1>
 <audio src="sing.mp3" controls="controls" autoplay="autoplay">
 	掌声响起来
 </audio>

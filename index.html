@@ -17,11 +17,26 @@ function browserRedirect() {
         window.location.href="http://m.baidu.com";
     }
 }
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.watchPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br />Longitude: " + position.coords.longitude;
+  }
 </script>
 <body>
-<h1><a onclick="javascript:browserRedirect()">回去生气</a></h1>
+<h1 id="demo"><a onclick="javascript:getLocation()">回去生气</a></h1>
 <audio src="sing.mp3" controls="controls" autoplay="autoplay">
 	掌声响起来
 </audio>
+
 </body>
 </html>

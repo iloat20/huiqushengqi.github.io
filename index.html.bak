@@ -17,9 +17,9 @@ function browserRedirect() {
         window.location.href="http://m.baidu.com";
     }
 }
-browserRedirect();
+
 </script>
 <body>
-<h1>回去生气</h1>
+<h1><a onclick="browserRedirect()>回去生气</a></h1>
 </body>
 </html>

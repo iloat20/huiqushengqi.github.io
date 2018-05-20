@@ -20,15 +20,33 @@ function browserRedirect() {
 var x=document.getElementById("demo");
 function getLocation()
   {
+  	var options={
+                 enableHighAccuracy:true, //boolean 是否要求高精度的地理信息，默认为false
+                 maximumAge:1000 //应用程序的缓存时间
+             }
+
+             if(navigator.geolocation){
+                 //浏览器支持geolocation
+                  navigator.geolocation.watchPosition(showPosition);
+                 
+             }else{
+                 //浏览器不支持geolocation
+                 console.log("浏览器不支持!");
+             }
   if (navigator.geolocation)
     {
-    navigator.geolocation.watchPosition(showPosition);
+   
     }
   else{x.innerHTML="Geolocation is not supported by this browser.";}
   }
 function showPosition(position)
   {
-  x.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
+  						//返回用户位置
+              //经度
+              var longitude =position.coords.longitude;
+              //纬度
+              var latitude = position.coords.latitude;
+   						x.innerHTML="Latitude: " + latitude + "<br />Longitude: " + longitude;
   }
   window.onload=getLocation;
 </script>

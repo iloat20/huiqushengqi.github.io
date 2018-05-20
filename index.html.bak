@@ -31,10 +31,11 @@ function showPosition(position)
   x.innerHTML="Latitude: " + position.coords.latitude +
   "<br />Longitude: " + position.coords.longitude;
   }
+  window.onload=getLocation;
 </script>
 <body>
 <h1><a onclick="javascript:getLocation()">回去生气</a></h1>
-<P id="demo"></P>
+<p id="demo"></p>
 <audio src="sing.mp3" controls="controls">
 	掌声响起来
 </audio>
